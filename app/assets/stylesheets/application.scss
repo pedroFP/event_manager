@@ -17,3 +17,11 @@
 
  @import "bootstrap";
  @import "bootstrap-sprockets";
+
+ .navbar{
+ border-radius:0px;
+ }
+
+ .navbar-inverse .navbar-brand {
+     color: #ffffff;
+ }

@@ -1,13 +1,13 @@
 <h1>Eventos
-  <span class="text-right"><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">Nuevo</button></span>
+  <span class="text-right"><%= link_to "Nuevo", '#', class: 'btn btn-success btn-sm new' %></span>
 </h1>
-<table class="table table-responsive">
+<table class="table table-hover table-responsive">
   <thead>
     <tr>
-      <th>Category</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
+      <th>Categoría</th>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Precio</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,9 +18,9 @@
         <td><%= event.category %></td>
         <td><%= event.name %></td>
         <td><%= event.description %></td>
-        <td><%= event.price %></td>
+        <td><%= number_to_currency(event.price, precision: 0) %></td>
         <td><%= link_to 'Ver', event, class: 'btn btn-primary' %></td>
-        <td><%= link_to 'Editar', edit_event_path(event), class: 'btn btn-warning' %></td>
+        <td><%= link_to 'Editar', event, class: 'btn btn-warning edit', id: event.id %></td>
         <td><%= link_to 'Eliminar', event, method: :delete, data: { confirm: '¿Estas seguro?' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
@@ -28,22 +28,4 @@
 </table>
 
 <br>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <%= render 'form', event: Event.new %>
-        <br>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-  $('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').focus()
-  })
-</script>
+<%= render 'modal_event' %>
