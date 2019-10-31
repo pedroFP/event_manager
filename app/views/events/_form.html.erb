@@ -12,27 +12,27 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :category %>
-    <%= form.text_field :category %>
+    <%= form.label "Categoría" %>
+    <%= form.text_field :category, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :nombre %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.label 'Descripción' %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :price %>
-    <%= form.number_field :price %>
+    <%= form.label 'Precio' %>
+    <%= form.number_field :price, class: "form-control" %>
   </div>
 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Aceptar", class: "btn btn-success btn-block" %>
   </div>
 <% end %>
