@@ -17,10 +17,8 @@ ActiveRecord::Schema.define(version: 2019_10_31_042925) do
     t.string "name"
     t.text "description"
     t.integer "price"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
