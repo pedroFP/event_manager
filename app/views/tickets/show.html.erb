@@ -18,10 +18,7 @@
   <div class="card-footer text-muted">
     <div class="d-flex">
         <div>
-          Ticket adquirido: <%= @ticket.created_at.strftime("%d-%m-%Y") %>
-        </div>
-        <div class="ml-auto">
-          <%= link_to 'Volver', tickets_path, class: 'btn btn-sm btn-warning' %>
+          Fecha de compra: <%= @ticket.created_at.strftime("%d-%m-%Y") %>
         </div>
    </div>
   </div>

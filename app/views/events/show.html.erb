@@ -1,22 +1,28 @@
-<p>
-  <strong>Category:</strong>
-  <%= @event.category %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @event.price %>
-</p>
-<%= link_to 'Tickets Comprados', event_tickets_path(@event) %>
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<h1>Informacíon detallada</h1>
+<div class="card">
+  <div class="card-header">
+    <div class="d-flex">
+        <div>
+           <strong>Nombre:</strong>
+        </div>
+        <div class="ml-auto">
+           <%= @event.name %>
+        </div>
+   </div>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><strong>Categoría:</strong> <%= @event.category %></h5>
+    <p class="card-text"><strong>Descripción del evento:</strong> <%= @event.description %></p>
+    <p><strong>Precio: </strong><%= number_to_currency(@event.price, precision: 0) %></p>
+  </div>
+  <div class="card-footer text-muted">
+    <div class="d-flex">
+        <div>
+          <%= link_to 'Tickets Comprados', event_tickets_path(@event) %>
+        </div>
+        <div class="ml-auto">
+          <%= link_to 'Volver', events_path, class: 'btn btn-sm btn-warning' %>
+        </div>
+   </div>
+  </div>
+</div>

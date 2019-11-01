@@ -4,6 +4,7 @@
     <tr>
       <th>Evento</th>
       <th>Precio</th>
+      <th>Fecha de compra</th>
       <th colspan="1"></th>
     </tr>
   </thead>
@@ -13,7 +14,11 @@
       <tr>
         <td><%= ticket.event.name %></td>
         <td><%= number_to_currency(ticket.event.price, precision: 0) %></td>
+        <td><%= ticket.created_at.strftime("%d-%m-%Y") %></td>
         <td><%= link_to 'Ver', ticket, class: 'btn btn-primary' %></td>
+        <% if current_user.admin? %>
+          <td><%= ticket.user.email %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

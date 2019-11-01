@@ -2,7 +2,11 @@ class TicketsController < ApplicationController
   authorize_resource
   before_action :authenticate_user!
   def index
-    @tickets = current_user.tickets.includes(:event)
+    if current_user.admin?
+      @tickets = Ticket.where(event_id: params[:event_id])
+    else
+      @tickets = current_user.tickets.includes(:event)
+    end
   end
 
   def show
