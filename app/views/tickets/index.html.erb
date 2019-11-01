@@ -1,5 +1,5 @@
 <h1>Tickets</h1>
-<table class="table table-hover table-responsive">
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Evento</th>
@@ -12,9 +12,8 @@
     <% @tickets.each do |ticket| %>
       <tr>
         <td><%= ticket.event.name %></td>
-        <td><%= ticket.event.price %></td>
+        <td><%= number_to_currency(ticket.event.price, precision: 0) %></td>
         <td><%= link_to 'Ver', ticket, class: 'btn btn-primary' %></td>
-        <td><%= link_to 'PDF', '#', class: 'btn btn-primary' %></td>
       </tr>
     <% end %>
   </tbody>
