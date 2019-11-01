@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+  authorize_resource
   before_action :authenticate_user!
   def index
     @tickets = current_user.tickets.includes(:event)

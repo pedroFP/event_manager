@@ -8,7 +8,15 @@
       </div>
       <div class="card-body">
         <p class="card-text"><%= event.description %></p>
-        <p class="card-text"><strong>Precio: </strong><%= number_to_currency(event.price, precision: 0) %></p>
+        <div class="d-flex">
+            <div>
+              <p class="card-text"><strong>Precio: </strong><%= number_to_currency(event.price, precision: 0) %></p>
+            </div>
+            <div class="ml-auto">
+              <%= link_to 'Ver', event_path(event), class: 'badge badge-info' %>
+            </div>
+       </div>
+       <br>
         <%= link_to 'Comprar Tickets', event_tickets_path(event), method: :post, class: 'btn btn-success btn-block btn-sm' %>
       </div>
     </div>
