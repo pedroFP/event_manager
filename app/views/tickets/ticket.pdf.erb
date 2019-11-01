@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Ticket</title>
+  </head>
+  <body>
+    <h1>Tickets</h1>
+    <div class="card">
+      <div class="card-header">
+        <div class="d-flex">
+            <div>
+               <strong>Nombre:</strong>
+            </div>
+            <div class="ml-auto">
+               <%= @ticket.user.email %>
+            </div>
+       </div>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><strong>Evento:</strong> <%= @ticket.event.name %></h5>
+        <p class="card-text"><strong>Descripción del evento:</strong> <%= @ticket.event.description %></p>
+        <p><strong>Precio: </strong><%= number_to_currency(@ticket.event.price, precision: 0) %></p>
+      </div>
+      <div class="card-footer text-muted">
+        <div class="d-flex">
+            <div>
+              Fecha de compra: <%= @ticket.created_at.strftime("%d-%m-%Y") %>
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

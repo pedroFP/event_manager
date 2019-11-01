@@ -11,6 +11,13 @@ class TicketsController < ApplicationController
 
   def show
     @ticket = Ticket.find(params[:id])
+    respond_to do |format|
+      if params[:format] == 'pdf'
+        format.pdf {render template: 'tickets/ticket', pdf: 'Ticket'}
+      else
+        format.html
+      end
+    end
   end
 
   def create

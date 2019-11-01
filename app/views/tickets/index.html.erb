@@ -15,7 +15,8 @@
         <td><%= ticket.event.name %></td>
         <td><%= number_to_currency(ticket.event.price, precision: 0) %></td>
         <td><%= ticket.created_at.strftime("%d-%m-%Y") %></td>
-        <td><%= link_to 'Ver', ticket, class: 'btn btn-primary' %></td>
+        <td><%= link_to 'Ver', ticket, class: 'btn btn-info' %></td>
+        <td><%= link_to 'PDF', ticket_path(ticket, format: :pdf) , class: 'btn btn-outline-danger' %></td>
         <% if current_user.admin? %>
           <td><%= ticket.user.email %></td>
         <% end %>
