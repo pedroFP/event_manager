@@ -17,6 +17,6 @@
   <strong>Price:</strong>
   <%= @event.price %>
 </p>
-
+<%= link_to 'Tickets Comprados', event_tickets_path(@event) %>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
