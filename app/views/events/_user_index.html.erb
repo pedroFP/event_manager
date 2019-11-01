@@ -1,1 +1,16 @@
-<h1>Cliente</h1>
+<h1>Eventos</h1>
+
+<div class="row">
+  <% @events.each do |event| %>
+    <div class="card" style="width: 16rem;">
+      <div class="card-header">
+        <h5 class="card-title"><%= event.name %></h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= event.description %></p>
+        <p class="card-text"><strong>Precio: </strong><%= number_to_currency(event.price, precision: 0) %></p>
+        <%= link_to 'Comprar Tickets', event_tickets_path(event), method: :post, class: 'btn btn-success btn-block btn-sm' %>
+      </div>
+    </div>
+  <% end %>
+</div>
