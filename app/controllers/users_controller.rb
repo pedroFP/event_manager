@@ -7,6 +7,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    @users = User.find(params[:id])
+    @user = User.find(params[:id])
+    @user.role = params[:user][:role]
+    if @user.save
+      redirect_to users_path
+    end
   end
 end
