@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :users, only: [:update, :index]
+
   resources :events do
     resources :tickets, only: [:index, :create]
   end

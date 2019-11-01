@@ -1,0 +1,24 @@
+<h1>Usuarios</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Rol</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td>
+          <%= form_with(model: user, local: true) do |form| %>
+            <%= select("user", "role", %w[admin client], selected: user.role) %>
+            <%= form.submit "Seleccionar rol", class: "btn btn-success btn-sm" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

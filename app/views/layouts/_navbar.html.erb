@@ -12,7 +12,7 @@
         </li>
         <% if current_user.admin? %>
           <li class="nav-item">
-            <%= link_to 'Usuarios', '#', class: 'nav-link active' %>
+            <%= link_to 'Usuarios', users_path, class: 'nav-link active' %>
           </li>
         <% else %>
           <li class="nav-item">
